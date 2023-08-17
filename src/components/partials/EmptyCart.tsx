@@ -1,6 +1,10 @@
 import EmptyCartImg from '../../assets/img/cart/empty-cart.png';
 
-function EmptyCart({ openCart }) {
+export type EmptyCartProps = {
+  openCart?: () => void;
+};
+
+function EmptyCart({ openCart }: EmptyCartProps) {
   return (
     <div className="empty-cart">
       <img src={EmptyCartImg} alt="empty-cart" />

@@ -1,9 +1,13 @@
-import { useContext, useEffect, useState } from "react";
-import { CartContext } from "../../pages/ProductPage";
+import { useContext, useEffect, useState } from 'react';
+import { CartContext, CartItem as CartItemType } from '../../pages/ProductPage';
 
-function CartItem() {
+export type CartItemProps = {
+  item: any;
+  cartItems: any;
+};
+function CartItem({ item, cartItems }: CartItemProps) {
   const [quantity, setQuantity] = useState(1);
-  const { cartItem, setCartItem } = useContext(CartContext);
+  const { cartItem, setCartItem } = useContext(CartContext)!;
 
   const increase = () => {
     if (quantity >= 1) {
@@ -17,17 +21,17 @@ function CartItem() {
     }
   };
 
-  const calcPrice = (quantity, item) => {
-    return quantity * item;
+  const calcPrice = (quantity: number, itemPrice: number) => {
+    return quantity * itemPrice;
   };
 
-  const [deleteItem, setDeleteItem] = useState(cartItem);
+  const [deleteItem, setDeleteItem] = useState<CartItemType[]>(cartItem);
 
-  const removeFromCart = (id) => {
+  const removeFromCart = (id: number) => {
     const updateCart = cartItem.filter((item) => item.id !== id);
-    setDeleteItem(updateCart);
-    const json = JSON.stringify(cartItem.id);
-    localStorage.removeItem("cartItem", json);
+    setCartItem(updateCart);
+    const json = JSON.stringify(updateCart);
+    localStorage.setItem('cartItem', json);
   };
 
   useEffect(() => {

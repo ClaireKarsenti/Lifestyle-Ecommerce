@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import "../../assets/styles/Banner.css";
+import { BannerProps } from "./Banner";
 
-function BannerReverse({ title, text, img }) {
+function BannerReverse({ title, text, img }: BannerProps) {
   return (
     <div className="banner">
       <div className="container">

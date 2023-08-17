@@ -3,13 +3,17 @@ import '../../assets/styles/TrendingSlider.css';
 
 function TrendingSlider() {
   const slideLeft = () => {
-    let slider = document.getElementById('slider');
-    slider.scrollLeft = slider.scrollLeft - 235;
+    const slider = document.getElementById('slider');
+    if (slider) {
+      slider.scrollLeft -= 235;
+    }
   };
 
   const slideRight = () => {
-    let slider = document.getElementById('slider');
-    slider.scrollLeft = slider.scrollLeft + 235;
+    const slider = document.getElementById('slider');
+    if (slider) {
+      slider.scrollLeft += 235;
+    }
   };
 
   return (

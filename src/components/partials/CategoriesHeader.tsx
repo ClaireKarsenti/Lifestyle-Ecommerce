@@ -1,22 +1,30 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CategoryButton from '../global/CategoryButton';
 import { items } from '../../utils/AllData';
 
+interface Item {
+  id: number;
+  category: string;
+}
+
 function CategoriesHeader() {
-  const allCategories = ['all', ...new Set(items.map((item) => item.category))];
+  const allCategories = [
+    'all',
+    ...Array.from(new Set(items.map((item: Item) => item.category))),
+  ];
 
-  const [btnName, setBtnName] = useState('All');
-  const [productsArray, setProductsArray] = useState(items);
+  const [btnName, setBtnName] = useState<string>('All');
+  const [productsArray, setProductsArray] = useState<Item[]>(items);
 
-  const filterItems = (category) => {
+  const filterItems = (category: string) => {
     let updatedCategoryName = category;
 
     if (category === 'all') {
       setProductsArray(items);
       setBtnName('All');
     } else {
-      const newItems = items.filter((item) => item.category === category);
+      const newItems = items.filter((item: Item) => item.category === category);
       setProductsArray(newItems);
 
       if (['chair', 'furniture', 'lamp', 'electronic'].includes(category)) {
@@ -38,7 +46,7 @@ function CategoriesHeader() {
         </div>
         <div className="filter-btns">
           <CategoryButton
-            categories={allCategories}
+            categories={[...allCategories]} // Convert Set to Array using spread operator
             filterItems={filterItems}
           />
         </div>
