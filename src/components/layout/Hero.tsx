@@ -1,49 +1,25 @@
 import { Link } from 'react-router-dom';
-import Main1 from '../../assets/img/header/home-img-1.jpg';
-import Main2 from '../../assets/img/header/home-img-2.jpg';
-import Main3 from '../../assets/img/header/home-img-3.jpg';
-import Main4 from '../../assets/img/header/home-img-4.jpg';
+import { gridCategories } from '../../utils/HeroData';
 import '../../assets/styles/Header.css';
 
-function Hero() {
+const Hero = () => {
   return (
-    <>
-      <div className="home-container">
-        <div className="container">
-          <div className="grid-container">
-            <div className="featured grid-one">
-              <Link to="categories/furnitures">
+    <div className="home-container">
+      <div className="container">
+        <div className="grid-container">
+          {gridCategories.map((category, index) => (
+            <div className={`featured ${category.class}`} key={index}>
+              <Link to={`categories/${category.to}`}>
                 <div id="img1" className="lil-overlay"></div>
-                <img src={Main1} alt="img1" />
-                <p className="main-description">Live Comfortably</p>
+                <img src={category.src} alt={category.id} />
+                <p className="main-description">{category.description}</p>
               </Link>
             </div>
-            <div className="featured grid-two">
-              <Link to="categories/skin-care">
-                <div id="img2" className="lil-overlay"></div>
-                <img src={Main2} alt="img2" />
-                <p className="main-description">Skincare</p>
-              </Link>
-            </div>
-            <div className="featured grid-four">
-              <Link to="categories/kitchen">
-                <div id="img3" className="lil-overlay"></div>
-                <img src={Main3} alt="img3" />
-                <p className="main-description">Kitchen</p>
-              </Link>
-            </div>
-            <div className="featured grid-four-low">
-              <Link to="categories/electronics">
-                <div id="img4" className="lil-overlay"></div>
-                <img src={Main4} alt="img4" />
-                <p className="main-description">Electronics</p>
-              </Link>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
-}
+};
 
 export default Hero;
