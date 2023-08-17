@@ -1,15 +1,7 @@
-import CategoryItems from './CategoryItems';
-import Footer from '../layout/Footer';
-import Newsletter from '../partials/Newsletter';
+import CategoryPage from '../global/CategoryPage';
 
-function Lamps() {
-  return (
-    <>
-      <CategoryItems category="lamp" />
-      <Newsletter />
-      <Footer />
-    </>
-  );
+const Lamps = () => {
+  return <CategoryPage category="lamp" />;
 }
 
 export default Lamps;

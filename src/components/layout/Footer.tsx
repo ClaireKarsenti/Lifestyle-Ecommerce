@@ -34,7 +34,7 @@ function Footer() {
             {' '}
             <span className="me">Claire Karsenti</span>
           </a>{' '}
-          using <FontAwesomeIcon icon={['fas', 'react']} />
+          using <FontAwesomeIcon icon={['fab', 'react']} />
         </p>
       </footer>
     </>

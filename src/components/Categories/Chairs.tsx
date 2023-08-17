@@ -1,15 +1,7 @@
-import CategoryItems from './CategoryItems';
-import Footer from '../layout/Footer';
-import Newsletter from '../partials/Newsletter';
+import CategoryPage from '../global/CategoryPage';
 
-function Chairs() {
-  return (
-    <>
-      <CategoryItems category="chair" />
-      <Newsletter />
-      <Footer />
-    </>
-  );
+const Chairs = () => {
+  return <CategoryPage category="chair" />;
 }
 
 export default Chairs;

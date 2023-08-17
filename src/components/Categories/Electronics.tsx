@@ -1,15 +1,7 @@
-import CategoryItems from './CategoryItems';
-import Footer from '../layout/Footer';
-import Newsletter from '../partials/Newsletter';
+import CategoryPage from '../global/CategoryPage';
 
-function Electronics() {
-  return (
-    <>
-      <CategoryItems category="electronic" />
-      <Newsletter />
-      <Footer />
-    </>
-  );
+const Electronics = () => {
+  return <CategoryPage category="electronic" />;
 }
 
 export default Electronics;

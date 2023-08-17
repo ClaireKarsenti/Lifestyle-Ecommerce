@@ -1,15 +1,7 @@
-import CategoryItems from './CategoryItems';
-import Footer from '../layout/Footer';
-import Newsletter from '../partials/Newsletter';
+import CategoryPage from '../global/CategoryPage';
 
-function SkinCare() {
-  return (
-    <>
-      <CategoryItems category="skin-care" />
-      <Newsletter />
-      <Footer />
-    </>
-  );
+const SkinCare = () => {
+  return <CategoryPage category="skin-care" />;
 }
 
 export default SkinCare;

@@ -1,15 +1,7 @@
-import CategoryItems from './CategoryItems';
-import Footer from '../layout/Footer';
-import Newsletter from '../partials/Newsletter';
+import CategoryPage from '../global/CategoryPage';
 
-function Kitchen() {
-  return (
-    <>
-      <CategoryItems category="kitchen" />
-      <Newsletter />
-      <Footer />
-    </>
-  );
+const Kitchen = () => {
+  return <CategoryPage category="kitchen" />;
 }
 
 export default Kitchen;
