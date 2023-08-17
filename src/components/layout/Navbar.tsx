@@ -1,8 +1,8 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CartWithItems from '../partials/CartWithItems';
 import EmptyCart from '../partials/EmptyCart';
-import { CartContext } from '../../pages/ProductPage';
+import { CartContext, CartItem } from '../../pages/ProductPage';
 import LogoImg2 from '../../assets/img/newlogo2.png';
 import '../../assets/styles/Navbar.css';
 
@@ -11,7 +11,9 @@ function Navbar() {
   const [mobileNav, setMobileNav] = useState(false);
   const [cart, setCart] = useState(false);
 
-  const { cartItem } = useContext(CartContext);
+  const cartContext = useContext(CartContext);
+
+  const cartItem: CartItem[] = cartContext?.cartItem || [];
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
@@ -25,7 +27,12 @@ function Navbar() {
     setCart(!cart);
   };
 
-  window.addEventListener('scroll', handleScroll);
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -59,13 +66,11 @@ function Navbar() {
         </div>
       </div>
 
-      {/* overlay */}
       <div
         onClick={openCart}
         className={`page-overlay ${cart ? 'open-flex' : 'closed-flex'}`}
       ></div>
 
-      {/* cart */}
       <div className={`cart-div ${cart ? 'open-cart' : 'closed-cart'}`}>
         <div className="cart-title-btn">
           <h2 className="cart-full-h2">

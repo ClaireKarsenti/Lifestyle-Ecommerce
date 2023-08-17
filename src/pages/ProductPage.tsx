@@ -1,25 +1,52 @@
-import { createContext, useContext, useState } from 'react';
-import { useParams } from 'react-router';
+import React, { createContext, useContext, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import TrendingSlider from '../components/partials/TrendingSlider';
 import Newsletter from '../components/partials/Newsletter';
 import Footer from '../components/layout/Footer';
 import { items } from '../utils/AllData';
 import '../assets/styles/ProductPage.css';
 
-export const CartContext = createContext();
+interface Item {
+  id: number;
+  description: string;
+  img: string;
+  otherImgs: string[];
+  specs: string;
+  texture: string;
+  weight: string;
+  size: string;
+  price: number;
+}
+
+export interface CartItem extends Item {}
+
+export interface CartContextType {
+  cartItem: CartItem[];
+  addToCart: (item: CartItem) => void;
+  setCartItem: React.Dispatch<React.SetStateAction<CartItem[]>>;
+}
+
+export const CartContext = createContext<CartContextType | undefined>(
+  undefined
+);
 
 function ProductPage() {
-  const { id } = useParams();
-  const item = items.filter((item) => item.id === parseInt(id));
+  const { id } = useParams<{ id?: string }>();
+  const parsedId = id ? parseInt(id) : undefined;
+  const item: Item[] = parsedId
+    ? items.filter((item) => item.id === parsedId)
+    : [];
 
-  const [quantity, setQuantity] = useState(1);
-  const [image, setImage] = useState(item[0].img);
-  const [notify, setNotify] = useState(false);
+  const [quantity, setQuantity] = useState<number>(1);
+  const [image, setImage] = useState<string>(item[0].img);
+  const [notify, setNotify] = useState<boolean>(false);
 
-  const { addToCart } = useContext(CartContext);
+  const cartContext = useContext(CartContext);
 
-  const changeImage = (e) => {
-    setImage(e.target.src);
+  const changeImage = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
+    if (e.target instanceof HTMLImageElement) {
+      setImage(e.target.src);
+    }
   };
 
   const increase = () => {
@@ -34,7 +61,7 @@ function ProductPage() {
     }
   };
 
-  const calcPrice = (quantity) => {
+  const calcPrice = (quantity: number) => {
     return quantity * item[0].price;
   };
 
@@ -91,8 +118,10 @@ function ProductPage() {
               <div className="atc-buy">
                 <button
                   onClick={() => {
-                    addToCart(item[0]);
-                    showNotify();
+                    if (cartContext) {
+                      cartContext.addToCart(item[0]);
+                      showNotify();
+                    }
                   }}
                   className="atc-btn"
                 >

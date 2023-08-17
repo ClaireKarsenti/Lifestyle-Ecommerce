@@ -6,21 +6,23 @@ function Footer() {
     <>
       <footer>
         <div className="footer-links">
-          <a href="#">About</a>
-          <a href="#">Store locator</a>
-          <a href="#">FAQs</a>
-          <a href="#">News</a>
-          <a href="#">Careers</a>
-          <a href="#">Contact Us</a>
+          <a href="https://www.linkedin.com/in/claire-karsenti/">About</a>
+          <a href="https://www.linkedin.com/in/claire-karsenti/">
+            Store locator
+          </a>
+          <a href="https://www.linkedin.com/in/claire-karsenti/">FAQs</a>
+          <a href="https://www.linkedin.com/in/claire-karsenti/">News</a>
+          <a href="https://www.linkedin.com/in/claire-karsenti/">Careers</a>
+          <a href="https://www.linkedin.com/in/claire-karsenti/">Contact Us</a>
         </div>
         <p className="love">
           <FontAwesomeIcon
-            icon="fa-solid fa-code"
+            icon={['fas', 'code']}
             style={{ color: '#f2f6fd' }}
-          /> {' '}
+          />{' '}
           with{' '}
           <FontAwesomeIcon
-            icon="fa-solid fa-heart"
+            icon={['fas', 'heart']}
             style={{ color: '#f2f6fd' }}
           />{' '}
           by{' '}
@@ -32,7 +34,7 @@ function Footer() {
             {' '}
             <span className="me">Claire Karsenti</span>
           </a>{' '}
-          using <FontAwesomeIcon icon="fa-brands fa-react" />
+          using <FontAwesomeIcon icon={['fas', 'react']} />
         </p>
       </footer>
     </>

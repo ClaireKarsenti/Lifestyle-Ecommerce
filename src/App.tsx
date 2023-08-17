@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState, createContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Home from './pages/Home';
@@ -10,25 +10,40 @@ import Lamps from './components/Categories/Lamps';
 import Kitchen from './components/Categories/Kitchen';
 import Chairs from './components/Categories/Chairs';
 import SkinCare from './components/Categories/SkinCare';
-import ProductPage, { CartContext } from './pages/ProductPage';
+import ProductPage from './pages/ProductPage';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 
+library.add(fab, fas, far);
+
+interface CartItem {
+  id: number;
+  description: string;
+}
+
+interface CartContextType {
+  cartItem: CartItem[];
+  addToCart: (item: CartItem) => void;
+  setCartItem: React.Dispatch<React.SetStateAction<CartItem[]>>;
+}
+
+export const CartContext = createContext<CartContextType | undefined>(
+  undefined
+);
 
 function App() {
-  const [cartItem, setCartItem] = useState([]);
+  const [cartItem, setCartItem] = useState<CartItem[]>([]);
 
-  const addToCart = (item) => {
+  const addToCart = (item: CartItem) => {
     setCartItem([...cartItem, item]);
   };
 
-  // local storage
   useEffect(() => {
     const json = localStorage.getItem('cartItem');
-    const savedCart = JSON.parse(json);
+    const savedCart = json ? JSON.parse(json) : [];
     if (savedCart) {
       setCartItem(savedCart);
     }
@@ -43,8 +58,7 @@ function App() {
     <CartContext.Provider value={{ cartItem, addToCart, setCartItem }}>
       <Navbar />
       <Routes>
-        <Route index path="/" element={<Home />} />
-
+        <Route index element={<Home />} />
         <Route path="categories" element={<Categories />}>
           <Route path="all" element={<All />} />
           <Route path="furniture" element={<Furnitures />} />
@@ -61,4 +75,3 @@ function App() {
 }
 
 export default App;
-library.add(fab, fas, far);

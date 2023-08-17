@@ -1,8 +1,11 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { items } from '../../utils/AllData';
 
-function CategoryItems({ category }) {
+export type CategoryItemsProps = {
+  category?: string;
+};
+
+function CategoryItems({ category }: CategoryItemsProps) {
   let filteredItems;
 
   if (category) {

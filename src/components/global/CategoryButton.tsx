@@ -1,10 +1,14 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CategoryButton = ({ categories, filterItems }) => {
+export type CategoryButtonProps = {
+  categories: any;
+  filterItems: any;
+};
+
+const CategoryButton = ({ categories, filterItems }: CategoryButtonProps) => {
   return (
     <>
-      {categories.map((category, index) => {
+      {categories.map((category: string, index: number) => {
         let categoryDisplayName = category;
         if (['chair', 'furniture', 'lamp', 'electronic'].includes(category)) {
           categoryDisplayName = category + 's';
