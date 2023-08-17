@@ -28,13 +28,13 @@ export const CartContext = createContext<CartContextType | undefined>(
 );
 
 const categories = [
-  { path: 'all', label: '' },
-  { path: 'furniture', label: 'furniture' },
-  { path: 'electronic', label: 'electronic' },
-  { path: 'lamp', label: 'lamp' },
-  { path: 'kitchen', label: 'kitchen' },
-  { path: 'chair', label: 'chair' },
-  { path: 'skin-care', label: 'skin-care' },
+  'all',
+  'furniture',
+  'electronic',
+  'lamp',
+  'kitchen',
+  'chair',
+  'skin-care',
 ];
 
 function App() {
@@ -63,11 +63,13 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path="categories" element={<Categories />}>
-          {categories.map((category) => (
+          {categories.map((category, index) => (
             <Route
-              key={category.path}
-              path={category.path}
-              element={<CategoryPage category={category.label} />}
+              key={index}
+              path={category}
+              element={
+                <CategoryPage category={category !== 'all' ? category : ''} />
+              }
             />
           ))}
         </Route>
