@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import TrendingSlider from '../components/partials/TrendingSlider';
 import Newsletter from '../components/partials/Newsletter';
 import Footer from '../components/layout/Footer';
-import { items } from '../utils/AllData';
+import { items } from '../utils/ProductsData';
 import '../assets/styles/ProductPage.css';
 
 interface Item {

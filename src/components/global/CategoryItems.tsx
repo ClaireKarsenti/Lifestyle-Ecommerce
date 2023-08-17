@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { items } from '../../utils/AllData';
+import { items } from '../../utils/ProductsData';
 
 export type CategoryItemsProps = {
   category?: string;

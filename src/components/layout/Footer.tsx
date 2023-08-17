@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { links } from '../../utils/FooterData';
 import '../../assets/styles/Footer.css';
 
 function Footer() {
@@ -6,14 +7,11 @@ function Footer() {
     <>
       <footer>
         <div className="footer-links">
-          <a href="https://www.linkedin.com/in/claire-karsenti/">About</a>
-          <a href="https://www.linkedin.com/in/claire-karsenti/">
-            Store locator
-          </a>
-          <a href="https://www.linkedin.com/in/claire-karsenti/">FAQs</a>
-          <a href="https://www.linkedin.com/in/claire-karsenti/">News</a>
-          <a href="https://www.linkedin.com/in/claire-karsenti/">Careers</a>
-          <a href="https://www.linkedin.com/in/claire-karsenti/">Contact Us</a>
+          {links.map((link, index) => (
+            <a href="https://www.linkedin.com/in/claire-karsenti/" key={index}>
+              {link}
+            </a>
+          ))}
         </div>
         <p className="love">
           <FontAwesomeIcon

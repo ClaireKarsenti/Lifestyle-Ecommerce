@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { items } from '../../utils/AllData';
+import { items } from '../../utils/ProductsData';
 import '../../assets/styles/ProudProducts.css';
 
 function ProductItem() {
