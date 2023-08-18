@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { items } from '../../utils/ProductsData';
 import '../../assets/styles/TrendingSlider.css';
 
-function TrendingItem() {
+const TrendingItem = () => {
   const filteredItems = items.filter((item) => item.id >= 8);
   return (
     <>

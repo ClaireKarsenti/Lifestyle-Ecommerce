@@ -1,7 +1,7 @@
 import ProductItem from "./ProductItem";
 import '../../assets/styles/ProudProducts.css';
 
-function ProudProducts() {
+const ProudProducts = () => {
   return (
     <div className="proud-container">
       <h2 className="container proud-h2">Products we are proud of</h2>

@@ -1,6 +1,6 @@
 import "../../assets/styles/Newsletter.css";
 
-function Newsletter() {
+const Newsletter = () => {
   return (
     <>
       <div className="news">

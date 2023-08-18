@@ -9,7 +9,7 @@ import Banner1 from '../assets/img/banner/banner1.jpg';
 import Banner2 from '../assets/img/banner/banner2.jpg';
 import '../assets/styles/Banner.css';
 
-function Home() {
+const Home = () => {
   return (
     <>
       <Hero />

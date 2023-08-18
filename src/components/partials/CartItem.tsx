@@ -5,7 +5,8 @@ export type CartItemProps = {
   item: any;
   cartItems: any;
 };
-function CartItem({ item, cartItems }: CartItemProps) {
+
+const CartItem = ({ item, cartItems }: CartItemProps) => {
   const [quantity, setQuantity] = useState(1);
   const { cartItem, setCartItem } = useContext(CartContext)!;
 

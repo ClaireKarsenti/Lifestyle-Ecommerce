@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TrendingItem from './TrendingItem';
 import '../../assets/styles/TrendingSlider.css';
 
-function TrendingSlider() {
+const TrendingSlider = () => {
   const slideLeft = () => {
     const slider = document.getElementById('slider');
     if (slider) {

@@ -8,7 +8,7 @@ export type BannerProps = {
   img: string;
 };
 
-function Banner({ className, title, text, img }: BannerProps) {
+const Banner = ({ className, title, text, img }: BannerProps) => {
   return (
     <div className="banner">
       <div className="container">
@@ -29,6 +29,6 @@ function Banner({ className, title, text, img }: BannerProps) {
       </div>
     </div>
   );
-}
+};
 
 export default Banner;

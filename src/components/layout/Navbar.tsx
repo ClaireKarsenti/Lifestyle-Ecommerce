@@ -6,7 +6,7 @@ import { CartContext, CartItem } from '../../pages/ProductPage';
 import LogoImg2 from '../../assets/img/newlogo2.png';
 import '../../assets/styles/Navbar.css';
 
-function Navbar() {
+const Navbar = () => {
   const [sticky, setSticky] = useState(false);
   const [mobileNav, setMobileNav] = useState(false);
   const [cart, setCart] = useState(false);
@@ -53,9 +53,6 @@ function Navbar() {
         <div className="mobile-links">
           <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/all">
             categories
-          </Link>
-          <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/lamps">
-            lamps
           </Link>
           <Link
             onClick={() => setMobileNav(!mobileNav)}

@@ -4,7 +4,7 @@ import { CartContext } from '../../pages/ProductPage';
 import EmptyCart from './EmptyCart';
 import CartItem from './CartItem';
 
-function CartWithItems() {
+const CartWithItems = () => {
   const { cartItem, setCartItem } = useContext(CartContext)!;
 
   const [totalPrice, setTotalPrice] = useState<number>(0);
@@ -38,6 +38,6 @@ function CartWithItems() {
       </div>
     </>
   );
-}
+};
 
 export default CartWithItems;

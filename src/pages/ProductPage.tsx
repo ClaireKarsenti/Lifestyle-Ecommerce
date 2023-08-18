@@ -30,7 +30,7 @@ export const CartContext = createContext<CartContextType | undefined>(
   undefined
 );
 
-function ProductPage() {
+const ProductPage = () => {
   const { id } = useParams<{ id?: string }>();
   const parsedId = id ? parseInt(id) : undefined;
   const item: Item[] = parsedId
@@ -153,6 +153,6 @@ function ProductPage() {
       </div>
     </>
   );
-}
+};
 
 export default ProductPage;

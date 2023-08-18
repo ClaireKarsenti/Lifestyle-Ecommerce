@@ -4,7 +4,7 @@ export type EmptyCartProps = {
   openCart?: () => void;
 };
 
-function EmptyCart({ openCart }: EmptyCartProps) {
+const EmptyCart = ({ openCart }: EmptyCartProps) => {
   return (
     <div className="empty-cart">
       <img src={EmptyCartImg} alt="empty-cart" />

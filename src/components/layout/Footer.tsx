@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { links } from '../../utils/FooterData';
 import '../../assets/styles/Footer.css';
 
-function Footer() {
+const Footer = () => {
   return (
     <>
       <footer>

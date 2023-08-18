@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { items } from '../../utils/ProductsData';
 import '../../assets/styles/ProudProducts.css';
 
-function ProductItem() {
+const ProductItem = () => {
   const filteredItems = items.filter((item) => item.id <= 8);
 
   return (
