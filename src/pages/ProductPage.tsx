@@ -1,10 +1,11 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import TrendingSlider from '../components/partials/TrendingSlider';
 import Newsletter from '../components/partials/Newsletter';
 import Footer from '../components/layout/Footer';
 import { items } from '../utils/ProductsData';
 import '../assets/styles/ProductPage.css';
+import { CartContext } from '../App';
 
 interface Item {
   id: number;
@@ -25,10 +26,6 @@ export interface CartContextType {
   addToCart: (item: CartItem) => void;
   setCartItem: React.Dispatch<React.SetStateAction<CartItem[]>>;
 }
-
-export const CartContext = createContext<CartContextType | undefined>(
-  undefined
-);
 
 const ProductPage = () => {
   const { id } = useParams<{ id?: string }>();

@@ -2,10 +2,10 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import CartWithItems from '../partials/CartWithItems';
 import EmptyCart from '../partials/EmptyCart';
-import { CartContext, CartItem } from '../../pages/ProductPage';
 import LogoImg2 from '../../assets/img/newlogo2.png';
 import useNavbarController from '../../controllers/NavbarController';
 import '../../assets/styles/Navbar.css';
+import { CartContext, CartItem } from '../../App';
 
 const Navbar = () => {
   const { state, controller } = useNavbarController();

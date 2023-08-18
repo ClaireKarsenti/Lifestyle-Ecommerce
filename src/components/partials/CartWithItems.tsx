@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../pages/ProductPage';
 import EmptyCart from './EmptyCart';
 import CartItem from './CartItem';
+import { CartContext } from '../../App';
 
 const CartWithItems = () => {
   const { cartItem, setCartItem } = useContext(CartContext)!;

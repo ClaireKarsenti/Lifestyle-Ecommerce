@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { CartContext, CartItem as CartItemType } from '../../pages/ProductPage';
+import { CartContext, CartItem as CartItemType } from '../../App';
 
 export type CartItemProps = {
   item: any;

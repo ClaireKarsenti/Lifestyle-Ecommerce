@@ -12,9 +12,11 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 
 library.add(fab, fas, far);
 
-interface CartItem {
+export interface CartItem {
   id: number;
   description: string;
+  img: string;
+  price: number;
 }
 
 interface CartContextType {
