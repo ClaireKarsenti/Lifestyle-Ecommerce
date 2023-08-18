@@ -1,5 +1,5 @@
+import React from 'react';
 import Banner from '../components/partials/Banner';
-import BannerReverse from '../components/partials/BannerReverse';
 import Footer from '../components/layout/Footer';
 import Hero from '../components/layout/Hero';
 import Newsletter from '../components/partials/Newsletter';
@@ -7,6 +7,7 @@ import ProudProducts from '../components/partials/ProudProducts';
 import TrendingSlider from '../components/partials/TrendingSlider';
 import Banner1 from '../assets/img/banner/banner1.jpg';
 import Banner2 from '../assets/img/banner/banner2.jpg';
+import '../assets/styles/Banner.css';
 
 function Home() {
   return (
@@ -14,16 +15,19 @@ function Home() {
       <Hero />
       <ProudProducts />
       <Banner
+        className="banner-container"
         title="Creative harmonious living"
-        text="RAOUF Products are all made to standard sizes so that you can mix and match them freely."
+        text="Our products are all made to standard sizes so that you can mix and match them freely."
         img={Banner1}
       />
       <TrendingSlider />
-      <BannerReverse
-        title="Comfortable & Elegante Living"
-        text="RAOUF Products are all made to standard sizes so that you can mix and match them freely."
+      <Banner
+        className="banner-container-reverse"
+        title="Comfortable & Elegant Living"
+        text="Our products are all made to standard sizes so that you can mix and match them freely."
         img={Banner2}
       />
+
       <Newsletter />
       <Footer />
     </>

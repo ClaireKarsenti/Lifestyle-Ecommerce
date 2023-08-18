@@ -46,7 +46,7 @@ function CategoriesHeader() {
         </div>
         <div className="filter-btns">
           <CategoryButton
-            categories={[...allCategories]} // Convert Set to Array using spread operator
+            categories={[...allCategories]}
             filterItems={filterItems}
           />
         </div>

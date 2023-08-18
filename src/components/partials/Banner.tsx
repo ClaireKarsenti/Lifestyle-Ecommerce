@@ -2,16 +2,17 @@ import { Link } from 'react-router-dom';
 import '../../assets/styles/Banner.css';
 
 export type BannerProps = {
+  className: string;
   title: string;
   text: string;
   img: string;
 };
 
-function Banner({ title, text, img }: BannerProps) {
+function Banner({ className, title, text, img }: BannerProps) {
   return (
     <div className="banner">
       <div className="container">
-        <div className="banner-container">
+        <div className={className}>
           <div className="text-side">
             <div className="text">
               <h2>{title}</h2>
