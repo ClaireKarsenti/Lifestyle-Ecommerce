@@ -8,7 +8,12 @@ function Footer() {
       <footer>
         <div className="footer-links">
           {links.map((link, index) => (
-            <a href="https://www.linkedin.com/in/claire-karsenti/" key={index}>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.linkedin.com/in/claire-karsenti/"
+              key={index}
+            >
               {link}
             </a>
           ))}
@@ -25,7 +30,8 @@ function Footer() {
           />{' '}
           by{' '}
           <a
-            rel="noopener"
+            target="_blank"
+            rel="noreferrer"
             href="https://github.com/ClaireKarsenti"
             aria-label="My GitHub"
           >
