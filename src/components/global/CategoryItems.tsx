@@ -21,6 +21,7 @@ const CategoryItems = ({ category }: CategoryItemsProps) => {
           {filteredItems.map((item) => (
             <div key={item.id} className="product normal">
               <Link
+                data-testid="item-link"
                 onClick={() => window.scrollTo(0, 0)}
                 to={`/categories/product/${item.id}`}
               >
