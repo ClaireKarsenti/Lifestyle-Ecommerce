@@ -16,7 +16,7 @@ describe('E2E Test for React App', () => {
 
     // product page
     cy.contains('product').click({ force: true });
-    cy.location('pathname').should('eq', '/categories/product/19');
+    cy.location('pathname').should('eq', '/categories/product/15');
     cy.go('back');
   });
 

@@ -82,7 +82,7 @@ const Navbar = () => {
               </Link>
               <Link
                 onClick={() => window.scrollTo(0, 0)}
-                to="/categories/product/19"
+                to="/categories/product/15"
               >
                 product page
               </Link>
