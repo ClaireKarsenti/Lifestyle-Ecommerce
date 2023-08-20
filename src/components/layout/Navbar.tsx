@@ -53,7 +53,7 @@ const Navbar = () => {
 
         <div className="cart-body">
           {cartItem.length < 1 ? (
-            <EmptyCart openCart={controller.openCart} />
+            <EmptyCart openCart={controller.closeCart} />
           ) : (
             <CartWithItems />
           )}
