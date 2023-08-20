@@ -1,13 +1,12 @@
-import { useContext, useEffect, useState } from 'react';
-import { CartContext, CartItem as CartItemType } from '../../App';
+import { useContext, useState } from 'react';
+import { CartContext } from '../../App';
 
 export type CartItemProps = {
   item: any;
-  cartItems: any;
 };
 
-const CartItem = ({ item, cartItems }: CartItemProps) => {
-  const [quantity, setQuantity] = useState(1);
+const CartItem = ({ item }: CartItemProps) => {
+  const [quantity, setQuantity] = useState<number>(1);
   const { cartItem, setCartItem } = useContext(CartContext)!;
 
   const increase = () => {
@@ -26,45 +25,35 @@ const CartItem = ({ item, cartItems }: CartItemProps) => {
     return quantity * itemPrice;
   };
 
-  const [deleteItem, setDeleteItem] = useState<CartItemType[]>(cartItem);
-
   const removeFromCart = (id: number) => {
-    const updateCart = cartItem.filter((item) => item.id !== id);
-    setCartItem(updateCart);
-    const json = JSON.stringify(updateCart);
+    const updatedCart = cartItem.filter((item: any) => item.id !== id);
+    setCartItem(updatedCart);
+    const json = JSON.stringify(updatedCart);
     localStorage.setItem('cartItem', json);
   };
 
-  useEffect(() => {
-    setCartItem(deleteItem);
-  }, [deleteItem, setCartItem]);
-
   return (
-    <>
-      {cartItem.map((item, id) => (
-        <div key={id} className="cart-item">
-          <div className="cart-img">
-            <img src={item.img} alt="product" />
-          </div>
-          <div className="cart-middle">
-            <p className="cart-name">{item.description}</p>
-            <div className="cart-btns">
-              <button onClick={decrease}>-</button>
-              <p className="quantity">{quantity}</p>
-              <button onClick={increase}>+</button>
-            </div>
-          </div>
-          <div className="cart-right">
-            <p className="cart-price">{calcPrice(quantity, item.price)}.00$</p>
-            <i
-              onClick={() => removeFromCart(item.id)}
-              className="fa-sharp fa-solid fa-xmark"
-            ></i>
-          </div>
+    <div className="cart-item">
+      <div className="cart-img">
+        <img src={item.img} alt="product" />
+      </div>
+      <div className="cart-middle">
+        <p className="cart-name">{item.description}</p>
+        <div className="cart-btns">
+          <button onClick={decrease}>-</button>
+          <p className="quantity">{quantity}</p>
+          <button onClick={increase}>+</button>
         </div>
-      ))}
-    </>
+      </div>
+      <div className="cart-right">
+        <p className="cart-price">{calcPrice(quantity, item.price)}.00$</p>
+        <i
+          onClick={() => removeFromCart(item.id)}
+          className="fa-sharp fa-solid fa-xmark"
+        ></i>
+      </div>
+    </div>
   );
-}
+};
 
 export default CartItem;
