@@ -21,7 +21,7 @@ const TrendingSlider = () => {
     <div className="trending">
       <div className="container">
         <div className="title-btns">
-          <h3>Trending Now</h3>
+          <h3>Our best sellers</h3>
           <div className="btns">
             <button title="scroll left" onClick={slideLeft}>
               <FontAwesomeIcon icon={['fas', 'arrow-left']} />
