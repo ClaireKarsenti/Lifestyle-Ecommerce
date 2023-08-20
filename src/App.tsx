@@ -17,11 +17,12 @@ export interface CartItem {
   description: string;
   img: string;
   price: number;
+  quantity: number;
 }
 
-interface CartContextType {
+export interface CartContextType {
   cartItem: CartItem[];
-  addToCart: (item: CartItem) => void;
+  addToCart: (item: CartItem, quantity: number) => void;
   setCartItem: React.Dispatch<React.SetStateAction<CartItem[]>>;
 }
 

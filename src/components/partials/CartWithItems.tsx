@@ -10,7 +10,10 @@ const CartWithItems = () => {
   const [totalPrice, setTotalPrice] = useState<number>(0);
 
   useEffect(() => {
-    const newTotalPrice = cartItem.reduce((acc, item) => acc + item.price, 0);
+    const newTotalPrice = cartItem.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    );
     setTotalPrice(newTotalPrice);
   }, [cartItem]);
 

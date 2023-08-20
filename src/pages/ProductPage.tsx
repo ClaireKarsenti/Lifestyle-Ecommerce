@@ -66,6 +66,29 @@ const ProductPage = () => {
     setNotify(!notify);
   };
 
+  const cartItemIndex = cartContext?.cartItem.findIndex(
+    (cartItem) => cartItem.id === item[0].id
+  );
+
+  const addToCart = () => {
+    if (cartContext) {
+      if (cartItemIndex !== -1) {
+        // Item already exists, update quantity
+        const updatedCart = cartContext.cartItem.map((cartItem, index) =>
+          index === cartItemIndex
+            ? { ...cartItem, quantity: cartItem.quantity + quantity }
+            : cartItem
+        );
+        cartContext.setCartItem(updatedCart);
+      } else {
+        // Item doesn't exist, add to cart
+        const newItem = { ...item[0], quantity };
+        cartContext.addToCart(newItem, quantity);
+      }
+      showNotify();
+    }
+  };
+
   return (
     <>
       <div
@@ -114,15 +137,7 @@ const ProductPage = () => {
                 <p className="product-price">{calcPrice(quantity)}.00$</p>
               </div>
               <div className="atc-buy">
-                <button
-                  onClick={() => {
-                    if (cartContext) {
-                      cartContext.addToCart(item[0]);
-                      showNotify();
-                    }
-                  }}
-                  className="atc-btn"
-                >
+                <button onClick={addToCart} className="atc-btn">
                   add to cart
                 </button>
                 <button className="buy-btn">buy now</button>

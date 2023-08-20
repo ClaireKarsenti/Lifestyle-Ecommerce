@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { CartContext } from '../../App';
 
 export type CartItemProps = {
@@ -6,18 +6,23 @@ export type CartItemProps = {
 };
 
 const CartItem = ({ item }: CartItemProps) => {
-  const [quantity, setQuantity] = useState<number>(1);
   const { cartItem, setCartItem } = useContext(CartContext)!;
 
+  const existingItem = cartItem.find((cartItem) => cartItem.id === item.id);
+
   const increase = () => {
-    if (quantity >= 1) {
-      setQuantity(quantity + 1);
+    if (existingItem) {
+      existingItem.quantity += 1;
+      setCartItem([...cartItem]);
+    } else {
+      setCartItem([...cartItem, { ...item, quantity: 1 }]);
     }
   };
 
   const decrease = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
+    if (existingItem && existingItem.quantity > 1) {
+      existingItem.quantity -= 1;
+      setCartItem([...cartItem]);
     }
   };
 
@@ -41,12 +46,12 @@ const CartItem = ({ item }: CartItemProps) => {
         <p className="cart-name">{item.description}</p>
         <div className="cart-btns">
           <button onClick={decrease}>-</button>
-          <p className="quantity">{quantity}</p>
+          <p className="quantity">{existingItem ? existingItem.quantity : 1}</p>
           <button onClick={increase}>+</button>
         </div>
       </div>
       <div className="cart-right">
-        <p className="cart-price">{calcPrice(quantity, item.price)}.00$</p>
+        <p className="cart-price">{calcPrice(item.quantity, item.price)}.00$</p>
         <i
           onClick={() => removeFromCart(item.id)}
           className="fa-sharp fa-solid fa-xmark"

@@ -14,6 +14,11 @@ const Navbar = () => {
 
   const cartItem: CartItem[] = cartContext?.cartItem || [];
 
+  const cartItemQuantity = cartItem.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
   return (
     <>
       <div
@@ -82,7 +87,7 @@ const Navbar = () => {
                 product page
               </Link>
               <i
-                data-array-length={cartItem.length}
+                data-array-length={cartItemQuantity}
                 onClick={controller.openCart}
                 className={`fa-solid fa-cart-shopping ${
                   cartItem.length < 1 ? 'cart-icon' : 'cart-icon with-items'
@@ -91,9 +96,9 @@ const Navbar = () => {
             </div>
             <div className="hamburger-menu">
               <i
-                data-array-length={cartItem.length}
+                data-array-length={cartItemQuantity}
                 onClick={controller.openCart}
-                className={`fa-solid fa-cart-shopping hamburger-cart ${
+                className={`fa-solid fa-cart-shopping ${
                   cartItem.length < 1 ? 'cart-icon' : 'cart-icon with-items'
                 }`}
               ></i>
