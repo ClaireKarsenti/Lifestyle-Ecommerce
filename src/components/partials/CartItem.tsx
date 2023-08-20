@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../App';
+import { CartContext, CartItem as CartItemType } from '../../App';
 
 export type CartItemProps = {
-  item: any;
+  item: CartItemType;
   closeCart: () => void;
 };
 
