@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import CartWithItems from '../partials/CartWithItems';
 import EmptyCart from '../partials/EmptyCart';
-import LogoImg2 from '../../assets/img/newlogo2.png';
+import LogoImg2 from '../../assets/img/logo.png';
 import useNavbarController from '../../controllers/NavbarController';
 import { CartContext, CartItem } from '../../App';
 import '../../assets/styles/Navbar.css';
