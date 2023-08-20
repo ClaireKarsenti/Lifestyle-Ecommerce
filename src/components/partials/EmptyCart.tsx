@@ -1,17 +1,17 @@
 import EmptyCartImg from '../../assets/img/cart/empty-cart.png';
 
 export type EmptyCartProps = {
-  openCart?: () => void;
+  closeCart?: () => void;
 };
 
-const EmptyCart = ({ openCart }: EmptyCartProps) => {
+const EmptyCart = ({ closeCart }: EmptyCartProps) => {
   return (
     <div className="empty-cart">
       <img src={EmptyCartImg} alt="empty-cart" />
       <p>Your cart is empty</p>
-      <button onClick={openCart}>Keep Browsing</button>
+      <button onClick={closeCart}>Keep Browsing</button>
     </div>
   );
-}
+};
 
 export default EmptyCart;

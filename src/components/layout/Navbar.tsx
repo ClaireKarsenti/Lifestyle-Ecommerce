@@ -4,8 +4,8 @@ import CartWithItems from '../partials/CartWithItems';
 import EmptyCart from '../partials/EmptyCart';
 import LogoImg2 from '../../assets/img/newlogo2.png';
 import useNavbarController from '../../controllers/NavbarController';
-import '../../assets/styles/Navbar.css';
 import { CartContext, CartItem } from '../../App';
+import '../../assets/styles/Navbar.css';
 
 const Navbar = () => {
   const { state, controller } = useNavbarController();
@@ -58,9 +58,9 @@ const Navbar = () => {
 
         <div className="cart-body">
           {cartItem.length < 1 ? (
-            <EmptyCart openCart={controller.closeCart} />
+            <EmptyCart closeCart={controller.closeCart} />
           ) : (
-            <CartWithItems />
+            <CartWithItems closeCart={controller.closeCart} />
           )}
         </div>
       </div>

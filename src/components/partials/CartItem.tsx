@@ -1,11 +1,13 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { CartContext } from '../../App';
 
 export type CartItemProps = {
   item: any;
+  closeCart: () => void;
 };
 
-const CartItem = ({ item }: CartItemProps) => {
+const CartItem = ({ item, closeCart }: CartItemProps) => {
   const { cartItem, setCartItem } = useContext(CartContext)!;
 
   const existingItem = cartItem.find((cartItem) => cartItem.id === item.id);
@@ -39,11 +41,17 @@ const CartItem = ({ item }: CartItemProps) => {
 
   return (
     <div className="cart-item">
-      <div className="cart-img">
-        <img src={item.img} alt="product" />
-      </div>
+      <Link to={`/categories/product/${item.id}`}>
+        <div className="cart-img">
+          <img src={item.img} alt="product" onClick={closeCart} />
+        </div>
+      </Link>
       <div className="cart-middle">
-        <p className="cart-name">{item.description}</p>
+        <Link to={`/categories/product/${item.id}`}>
+          <p className="cart-name" onClick={closeCart}>
+            {item.description}
+          </p>
+        </Link>
         <div className="cart-btns">
           <button onClick={decrease}>-</button>
           <p className="quantity">{existingItem ? existingItem.quantity : 1}</p>
@@ -51,7 +59,9 @@ const CartItem = ({ item }: CartItemProps) => {
         </div>
       </div>
       <div className="cart-right">
-        <p className="cart-price">{calcPrice(item.quantity, item.price)}.00$</p>
+        <p className="cart-price">
+          {calcPrice(existingItem ? existingItem.quantity : 1, item.price)}.00$
+        </p>
         <i
           onClick={() => removeFromCart(item.id)}
           className="fa-sharp fa-solid fa-xmark"

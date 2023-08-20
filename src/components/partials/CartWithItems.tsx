@@ -4,7 +4,11 @@ import EmptyCart from './EmptyCart';
 import CartItem from './CartItem';
 import { CartContext } from '../../App';
 
-const CartWithItems = () => {
+export type CartWithItemsProps = {
+  closeCart: () => void;
+};
+
+const CartWithItems = ({ closeCart }: CartWithItemsProps) => {
   const { cartItem } = useContext(CartContext)!;
 
   const [totalPrice, setTotalPrice] = useState<number>(0);
@@ -23,7 +27,7 @@ const CartWithItems = () => {
         <div className="full-cart">
           {cartItem.map((item, id) =>
             cartItem.length !== 0 ? (
-              <CartItem key={id} item={item} />
+              <CartItem key={id} item={item} closeCart={closeCart} />
             ) : (
               <EmptyCart key={id} />
             )
