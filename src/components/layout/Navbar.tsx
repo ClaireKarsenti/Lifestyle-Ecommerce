@@ -48,7 +48,7 @@ const Navbar = () => {
       <div className={`cart-div ${state.cart ? 'open-cart' : 'closed-cart'}`}>
         <div className="cart-title-btn">
           <h2 className="cart-full-h2">
-            Your Shopping Cart ({cartItem.length})
+            Your Shopping Cart ({cartItemQuantity})
           </h2>
           <i
             onClick={controller.closeCart}
