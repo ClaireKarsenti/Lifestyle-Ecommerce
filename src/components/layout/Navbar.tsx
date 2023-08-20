@@ -34,7 +34,7 @@ const Navbar = () => {
           <Link onClick={controller.closeNavMobile} to="/categories/all">
             categories
           </Link>
-          <Link onClick={controller.closeNavMobile} to="/categories/product/19">
+          <Link onClick={controller.closeNavMobile} to="/categories/product/15">
             product page
           </Link>
         </div>
