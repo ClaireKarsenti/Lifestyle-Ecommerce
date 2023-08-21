@@ -9,7 +9,7 @@ const EmptyCart = ({ closeCart }: EmptyCartProps) => {
     <div className="empty-cart">
       <img src={EmptyCartImg} alt="empty-cart" />
       <p>Your cart is empty</p>
-      <button onClick={closeCart}>Keep Browsing</button>
+      <button onClick={closeCart}>Keep Shopping</button>
     </div>
   );
 };
