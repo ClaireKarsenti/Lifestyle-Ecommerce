@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../../assets/styles/Banner.css';
+import '../../styles/Banner.css';
 
 export type BannerProps = {
   className: string;

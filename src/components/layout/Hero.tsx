@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { gridCategories } from '../../utils/HeroData';
-import '../../assets/styles/Header.css';
+import '../../styles/Header.css';
 
 const Hero = () => {
   return (

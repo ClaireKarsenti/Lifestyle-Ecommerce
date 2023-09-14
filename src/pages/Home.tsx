@@ -7,7 +7,7 @@ import ProudProducts from '../components/partials/ProudProducts';
 import TrendingSlider from '../components/partials/TrendingSlider';
 import Banner1 from '../assets/img/banner/banner1.jpg';
 import Banner2 from '../assets/img/banner/banner2.jpg';
-import '../assets/styles/Banner.css';
+import '../styles/Banner.css';
 
 const Home = () => {
   return (
@@ -32,6 +32,6 @@ const Home = () => {
       <Footer />
     </>
   );
-}
+};
 
 export default Home;

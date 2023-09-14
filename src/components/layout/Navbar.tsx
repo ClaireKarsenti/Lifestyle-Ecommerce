@@ -5,7 +5,13 @@ import EmptyCart from '../partials/EmptyCart';
 import LogoImg2 from '../../assets/img/logo.png';
 import useNavbarController from '../../controllers/NavbarController';
 import { CartContext, CartItem } from '../../App';
-import '../../assets/styles/Navbar.css';
+import '../../styles/Navbar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faBars,
+  faCartShopping,
+  faXmark,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const { state, controller } = useNavbarController();
@@ -26,10 +32,7 @@ const Navbar = () => {
           state.mobileNav ? 'open-flex' : 'closed-flex'
         }`}
       >
-        <i
-          onClick={controller.closeNavMobile}
-          className="fa-sharp fa-solid fa-xmark"
-        ></i>
+        <FontAwesomeIcon icon={faXmark} onClick={controller.closeNavMobile} />
         <div className="mobile-links">
           <Link onClick={controller.closeNavMobile} to="/categories/all">
             categories
@@ -50,10 +53,7 @@ const Navbar = () => {
           <h2 className="cart-full-h2">
             Your Shopping Cart ({cartItemQuantity})
           </h2>
-          <i
-            onClick={controller.closeCart}
-            className="fa-sharp fa-solid fa-xmark"
-          ></i>
+          <FontAwesomeIcon icon={faXmark} onClick={controller.closeCart} />
         </div>
 
         <div className="cart-body">
@@ -86,26 +86,42 @@ const Navbar = () => {
               >
                 product page
               </Link>
-              <i
-                data-array-length={cartItemQuantity}
-                onClick={controller.openCart}
-                className={`fa-solid fa-cart-shopping ${
-                  cartItem.length < 1 ? 'cart-icon' : 'cart-icon with-items'
+
+              <div
+                className={`cart-icon ${
+                  cartItemQuantity > 0 ? 'with-items' : ''
                 }`}
-              ></i>
+              >
+                <FontAwesomeIcon
+                  icon={faCartShopping}
+                  onClick={controller.openCart}
+                />
+                {cartItemQuantity > 0 && (
+                  <span className="cart-item-count">{cartItemQuantity}</span>
+                )}
+              </div>
             </div>
+
             <div className="hamburger-menu">
-              <i
-                data-array-length={cartItemQuantity}
-                onClick={controller.openCart}
-                className={`fa-solid fa-cart-shopping ${
-                  cartItem.length < 1 ? 'cart-icon' : 'cart-icon with-items'
+              <div
+                className={`cart-icon ${
+                  cartItemQuantity > 0 ? 'with-items' : ''
                 }`}
-              ></i>
-              <i
+              >
+                <FontAwesomeIcon
+                  icon={faCartShopping}
+                  onClick={controller.openCart}
+                  style={{ width: '20px', height: '20px' }}
+                />
+                {cartItemQuantity > 0 && (
+                  <span className="cart-item-count">{cartItemQuantity}</span>
+                )}
+              </div>
+              <FontAwesomeIcon
+                icon={faBars}
                 onClick={controller.openNavMobile}
-                className="fa-solid fa-bars hamburger-hamb"
-              ></i>
+                className="hamburger-hamb"
+              />
             </div>
           </div>
         </div>

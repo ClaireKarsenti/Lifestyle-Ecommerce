@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { links } from '../../utils/FooterData';
-import '../../assets/styles/Footer.css';
+import '../../styles/Footer.css';
 
 const Footer = () => {
   return (
@@ -19,11 +19,7 @@ const Footer = () => {
           ))}
         </div>
         <p className="love">
-          <FontAwesomeIcon
-            icon={['fas', 'code']}
-            style={{ color: '#f2f6fd' }}
-          />{' '}
-          with{' '}
+          Code with{' '}
           <FontAwesomeIcon
             icon={['fas', 'heart']}
             style={{ color: '#f2f6fd' }}
@@ -37,12 +33,11 @@ const Footer = () => {
           >
             {' '}
             <span className="me">Claire Karsenti</span>
-          </a>{' '}
-          using <FontAwesomeIcon icon={['fab', 'react']} />
+          </a>
         </p>
       </footer>
     </>
   );
-}
+};
 
 export default Footer;

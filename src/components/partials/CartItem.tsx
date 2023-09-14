@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext, CartItem as CartItemType } from '../../App';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 export type CartItemProps = {
   item: CartItemType;
@@ -62,10 +64,10 @@ const CartItem = ({ item, closeCart }: CartItemProps) => {
         <p className="cart-price">
           {calcPrice(existingItem ? existingItem.quantity : 1, item.price)}.00$
         </p>
-        <i
+        <FontAwesomeIcon
+          icon={faXmark}
           onClick={() => removeFromCart(item.id)}
-          className="fa-sharp fa-solid fa-xmark"
-        ></i>
+        />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TrendingItem from './TrendingItem';
-import '../../assets/styles/TrendingSlider.css';
+import '../../styles/TrendingSlider.css';
 
 const TrendingSlider = () => {
   const slideLeft = () => {
@@ -37,6 +37,6 @@ const TrendingSlider = () => {
       </div>
     </div>
   );
-}
+};
 
 export default TrendingSlider;

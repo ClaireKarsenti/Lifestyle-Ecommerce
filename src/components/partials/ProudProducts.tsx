@@ -1,5 +1,5 @@
-import ProductItem from "./ProductItem";
-import '../../assets/styles/ProudProducts.css';
+import ProductItem from './ProductItem';
+import '../../styles/ProudProducts.css';
 
 const ProudProducts = () => {
   return (
@@ -12,6 +12,6 @@ const ProudProducts = () => {
       </div>
     </div>
   );
-}
+};
 
 export default ProudProducts;

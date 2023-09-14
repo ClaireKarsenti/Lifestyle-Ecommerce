@@ -1,4 +1,4 @@
-import "../../assets/styles/Newsletter.css";
+import '../../styles/Newsletter.css';
 
 const Newsletter = () => {
   return (
@@ -14,6 +14,6 @@ const Newsletter = () => {
       </div>
     </>
   );
-}
+};
 
 export default Newsletter;

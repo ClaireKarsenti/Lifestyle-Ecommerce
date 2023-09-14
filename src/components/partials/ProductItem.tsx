@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { items } from '../../utils/ProductsData';
-import '../../assets/styles/ProudProducts.css';
+import '../../styles/ProudProducts.css';
 
 const ProductItem = () => {
   const filteredItems = items.filter((item) => item.id <= 8);
@@ -25,6 +25,6 @@ const ProductItem = () => {
       ))}
     </>
   );
-}
+};
 
 export default ProductItem;

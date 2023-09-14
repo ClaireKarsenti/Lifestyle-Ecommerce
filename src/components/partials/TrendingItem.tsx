@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { items } from '../../utils/ProductsData';
-import '../../assets/styles/TrendingSlider.css';
+import '../../styles/TrendingSlider.css';
 
 const TrendingItem = () => {
   const filteredItems = items.filter((item) => item.id >= 8);
@@ -24,6 +24,6 @@ const TrendingItem = () => {
       ))}
     </>
   );
-}
+};
 
 export default TrendingItem;
